@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html');
 
     const createPath = (page) => path.resolve(__dirname, 'views', `${page}.html`);
-    console.log(createPath);
+
     let basePath = '';
 
     switch (req.url) {
@@ -18,19 +18,23 @@ const server = http.createServer((req, res) => {
         case '/home':
         case '/index.html':
             basePath = createPath('index');
+
             res.statusCode = 200;
             break;
         case '/about-us':
             res.statusCode = 301;
             res.setHeader('Location', '/contacts');
+
             res.end();
             break;
         case '/contacts':
             basePath = createPath('contacts');
+
             res.statusCode = 200;
             break;
         default:
             basePath = createPath('error');
+
             res.statusCode = 404;
             break;
     }
