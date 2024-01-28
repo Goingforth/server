@@ -1,12 +1,10 @@
 const { log } = require('node:console');
 const http = require('node:http');
 
-//const hostname = '127.1.1.0';
-// const hostname = "https://train-server-3jx8.onrender.com/"
-const port = 3000;
+
+const PORT = 3000;
 
 const server = http.createServer((req, res) => {
-    // console.log(req.url, req.method);
 
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
@@ -19,8 +17,6 @@ const server = http.createServer((req, res) => {
     res.end(data);
 });
 
-// server.listen(port, hostname, () => {
-server.listen(port, () => {
-    // console.log(`Server running at http://${hostname}:${port}/`);
-    console.log(`Server running `);
+server.listen(PORT, 'localhost', (error) => {
+    error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
