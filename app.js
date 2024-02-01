@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
     console.log('Server request');
+    console.log('Nodemon run');
 
     res.setHeader('Content-Type', 'text/html');
 
