@@ -13,10 +13,6 @@ const contactRoutes = require("./routes/contact-routes")
 
 const createPath = require("./helpers/create-path");
 
-// const PORT = process.env.PORT || 3000;
-
-// const db = "mongodb+srv://user:A1PgvPPMabhMaUG0@cluster0.zxtjwsh.mongodb.net/node-blog?retryWrites=true&w=majority";
-
 mongoose
     .connect(process.env.MONGO_URL)
     .then((res) => console.log('Connected to DB'))
