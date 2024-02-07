@@ -5,29 +5,27 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 
+require('dotenv').config();
+
 const postApiRoutes = require('./routes/api-post-routes');
 const postRoutes = require("./routes/post-routes")
 const contactRoutes = require("./routes/contact-routes")
 
 const createPath = require("./helpers/create-path");
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
-const db = "mongodb+srv://user:A1PgvPPMabhMaUG0@cluster0.zxtjwsh.mongodb.net/node-blog?retryWrites=true&w=majority";
+// const db = "mongodb+srv://user:A1PgvPPMabhMaUG0@cluster0.zxtjwsh.mongodb.net/node-blog?retryWrites=true&w=majority";
 
 mongoose
-    .connect(db)
+    .connect(process.env.MONGO_URL)
     .then((res) => console.log('Connected to DB'))
     .catch((error) => console.log(error));
 
 app.set('view engine', 'ejs');
 
-
-
-
-
-app.listen(PORT, (error) => {
-    error ? console.log(error) : console.log(`listening port ${PORT}`);
+app.listen(process.env.PORT, (error) => {
+    error ? console.log(error) : console.log(`listening port ${process.env.PORT}`);
 });
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
