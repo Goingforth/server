@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 
-
+const postApiRoutes = require('./routes/api-post-routes');
 const postRoutes = require("./routes/post-routes")
 const contactRoutes = require("./routes/contact-routes")
 
@@ -48,9 +48,7 @@ app.get('/', (req, res) => {
 
 app.use(contactRoutes);
 app.use(postRoutes);
-
-
-
+app.use(postApiRoutes);
 
 app.use((req, res) => {
     const title = 'Error Page';

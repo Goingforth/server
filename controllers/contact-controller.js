@@ -1,4 +1,3 @@
-const Post = require('../models/post');
 const Contact = require('../models/contact');
 const createPath = require("../helpers/create-path");
 
