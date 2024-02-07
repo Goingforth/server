@@ -57,10 +57,11 @@ article {
 
 .info {
   display: flex;
-  gap: 50px;
+  justify-content: space-between;
 }
 
-.post .info {
+.post-info {
+  display: flex;
   justify-content: flex-start;
   gap: 50px;
 }
